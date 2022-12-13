@@ -27,11 +27,15 @@ while [ $choice -eq 4 ]; do
     if [[ $choice -eq 1 ]] ; then
         echo ""
         echo "Running ClanBot without auto restart in Screen. Please wait. . ."
+        cd "$root/ClanBot"
+        sudo pnpm update
         while :; do screen -dmS clanbot clanbot.js; sleep 5s; done
         echo "Done"
     elif [[ $choice -eq 2 ]] ; then
         echo ""
         echo "Running ClanBot with auto restart in Screen. Please wait. . ."
+        cd "$root/ClanBot"
+        sudo pnpm update
         while :; do screen -dmS clanbot clanbot.js; sleep 5s; done
         echo "Done"
     elif [[ "$choice" -eq 3 ]] ; then
