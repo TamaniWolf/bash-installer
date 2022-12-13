@@ -3,13 +3,21 @@ echo "Running ClanBot"
 root=$(pwd)
 choice=4
 
+base_url="https://raw.githubusercontent.com/TamaniWolf/bash-installer/main"
+
+script_prereq="clan-prereq.sh"
+script_install="clan-download.sh"
+script_run="clan-run.sh"
+script_run_pm2="clan-run-pm2.sh"
+
 if hash pm2 2>/dev/null
 then
     echo "PM2 installed."
 else
     echo "PM2 is not installed."
     echo "Installing Prerequisites..."
-    bash "$root/clan_prereq.sh"
+    wget -N "$base_url/$script_prereq"
+    bash "$root/$script_prereq"
     exit 1
 fi
 
