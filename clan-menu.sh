@@ -46,7 +46,7 @@ while [ $choice -eq 9 ]; do
         wget -N "$base_url/$script_run_pm2" && bash "$root/$script_run_pm2"
         echo ""
         sleep 2s
-        bash "$root/clanStartScript.sh"
+        choice=9
     elif [[ $choice -eq 4 ]] ; then
         echo ""
         echo "Downloading the ClanBot run script for screen"
@@ -54,7 +54,7 @@ while [ $choice -eq 9 ]; do
         wget -N "$base_url/$script_run" && bash "$root/$script_run"
         echo ""
         sleep 2s
-        bash "$root/clanStartScript.sh"
+        choice=9
     elif [[ $choice -eq 5 ]] ; then
         echo ""
         echo "Exiting..."
