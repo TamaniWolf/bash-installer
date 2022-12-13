@@ -82,7 +82,7 @@ while [ $choice -eq 4 ]; do
         echo "Running ClanBot with auto restart in Screen. Please wait. . ."
         cd "$root/ClanBot"
         sudo pnpm update
-        while :; do screen -dmS "$name" clanbot.js; sleep 5s; done
+        while :; do screen -dmS clanbot clanbot.js; sleep 5s; done
         echo "Done"
     elif [[ "$choice" -eq 3 ]] ; then
         echo ""
