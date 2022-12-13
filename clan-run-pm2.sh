@@ -48,31 +48,41 @@ while [ $choice -eq 4 ]; do
 
     if [[ $choice -eq 1 ]] ; then
         echo "Do you want to name it?"
-        # while true; do
-            read -p "[y/n]" yn
-            case $yn in
-                [Yy]* ) echo "Name:";;
-                [Nn]* ) sleep 2; break;;
-                * ) echo "Couldn't get that please type [y] for Yes or [n] for No.";;
-            esac
-            if [[ $yn -eq y ]]; then
-                read name
-            elif [[ $yn -eq Y ]]; then
-                read name
-            fi
-        # done
+        read -p "[y/n]" yn
+        case $yn in
+            [Yy]* ) echo "Name:";;
+            [Nn]* ) sleep 2; break;;
+            * ) echo "Couldn't get that please type [y] for Yes or [n] for No.";;
+        esac
+        if [[ $yn -eq y ]]; then
+            read name
+        elif [[ $yn -eq Y ]]; then
+            read name
+        fi
         echo ""
         echo "Running ClanBot without auto restart in PM2. Please wait. . ."
         cd "$root/ClanBot"
         sudo pnpm update
-        while :; do pm2 start clanbot.js --name "$name" --max-memory-restart 250M; sleep 5s; done
+        while :; do pm2 start clanbot.js -f --name "$name" --max-memory-restart 250M; sleep 5s; done
         echo "Done"
     elif [[ $choice -eq 2 ]] ; then
+        echo "Do you want to name it?"
+        read -p "[y/n]" yn
+        case $yn in
+            [Yy]* ) echo "Name:";;
+            [Nn]* ) sleep 2; break;;
+            * ) echo "Couldn't get that please type [y] for Yes or [n] for No.";;
+        esac
+        if [[ $yn -eq y ]]; then
+            read name
+        elif [[ $yn -eq Y ]]; then
+            read name
+        fi
         echo ""
         echo "Running ClanBot with auto restart in PM2. Please wait. . ."
         cd "$root/ClanBot"
         sudo pnpm update
-        while :; do pm2 start clanbot.js --name "$name" --max-memory-restart 250M && pm2 save; sleep 5s; done
+        while :; do pm2 start clanbot.js -f --name "$name" --max-memory-restart 250M && pm2 save; sleep 5s; done
         echo "Done"
     elif [[ "$choice" -eq 3 ]] ; then
         echo ""
