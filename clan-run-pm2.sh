@@ -63,8 +63,9 @@ while [ $choice -eq 4 ]; do
         echo "Running ClanBot without auto restart in PM2. Please wait. . ."
         cd "$root/ClanBot"
         sudo pnpm update
-        while :; do pm2 start clanbot.js --name "$name" --max-memory-restart 250M; sleep 1s; done
+        pm2 start clanbot.js --name "$name" --max-memory-restart 250M; sleep 1s
         echo "Done"
+        exit 0
     elif [[ $choice -eq 2 ]] ; then
         echo "Do you want to name it?"
         read -p "[y/n]" yn
@@ -82,8 +83,9 @@ while [ $choice -eq 4 ]; do
         echo "Running ClanBot with auto restart in PM2. Please wait. . ."
         cd "$root/ClanBot"
         sudo pnpm update
-        while :; do pm2 start clanbot.js --name "$name" --max-memory-restart 250M && pm2 save; sleep 1s; done
+        pm2 start clanbot.js --name "$name" --max-memory-restart 250M && pm2 save; sleep 1s
         echo "Done"
+        exit 0
     elif [[ "$choice" -eq 3 ]] ; then
         echo ""
         echo "Exiting..."
