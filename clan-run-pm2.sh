@@ -50,7 +50,7 @@ while [ $choice -eq 4 ]; do
         echo "Do you want to name it?"
         read -p "[y/n]" yn
         case $yn in
-            [Yy]* ) read "name: " name; sleep 2; break;;
+            [Yy]* ) read -p "name:" name; sleep 2; break;;
             [Nn]* ) sleep 2; break;;
             * ) echo "Couldn't get that please type [y] for Yes or [n] for No.";;
         esac
