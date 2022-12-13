@@ -21,6 +21,19 @@ else
     exit 1
 fi
 
+DIRECTORY="ClanBot"
+
+if [ -d "$DIRECTORY" ]
+then
+  echo "$DIRECTORY is Downloaded."
+else
+    echo "$DIRECTORY is not Downloaded"
+    echo "Downloading $DIRECTORY..."
+    wget -N "$base_url/$script_install"
+    bash "$root/$script_install"
+    exit 1
+fi
+
 while [ $choice -eq 4 ]; do
 
     echo "1. Run Screen without Auto Restarting ClanBot."
