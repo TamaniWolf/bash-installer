@@ -6,6 +6,8 @@ echo ""
 root=$(pwd)
 choice=9
     
+base_url="https://raw.githubusercontent.com/TamaniWolf/bash-installer/main"
+
 script_prereq="clan-prereq.sh"
 script_install="clan-download.sh"
 script_run="clan-run.sh"
@@ -26,14 +28,14 @@ while [ $choice -eq 9 ]; do
         echo ""
         echo "Downloading the prerequisites installer script"
         rm "$root/$script_prereq" 1>/dev/null 2>&1
-        wget -N "https://github.com/TamaniWolf/bash-installer/blob/main/$script_prereq" && bash "$root/$script_prereq"
+        wget -N "$base_url/$script_prereq" && bash "$root/$script_prereq"
         echo ""
         choice=9
     elif [[ $choice -eq 2 ]] ; then
         echo ""
         echo "Downloading the ClanBot installer script"
         rm "$root/$script_install" 1>/dev/null 2>&1
-        wget -N "https://github.com/TamaniWolf/bash-installer/blob/main/$script_install" && bash "$root/$script_install"
+        wget -N "$base_url/$script_install" && bash "$root/$script_install"
         echo ""
         sleep 2s
         choice=9
@@ -41,7 +43,7 @@ while [ $choice -eq 9 ]; do
         echo ""
         echo "Downloading the ClanBot run script for PM2"
         rm "$root/$script_run_pm2" 1>/dev/null 2>&1
-        wget -N "https://github.com/TamaniWolf/bash-installer/blob/main/$script_run_pm2" && bash "$root/$script_run_pm2"
+        wget -N "$base_url/$script_run_pm2" && bash "$root/$script_run_pm2"
         echo ""
         sleep 2s
         bash "$root/clanStartScript.sh"
@@ -49,7 +51,7 @@ while [ $choice -eq 9 ]; do
         echo ""
         echo "Downloading the ClanBot run script for screen"
         rm "$root/$script_run" 1>/dev/null 2>&1
-        wget -N "https://github.com/TamaniWolf/bash-installer/blob/main/$script_run" && bash "$root/$script_run"
+        wget -N "$base_url/$script_run" && bash "$root/$script_run"
         echo ""
         sleep 2s
         bash "$root/clanStartScript.sh"
