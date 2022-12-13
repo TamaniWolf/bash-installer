@@ -2,6 +2,7 @@
 echo "Running ClanBot"
 root=$(pwd)
 choice=4
+name="ClanBot"
 
 base_url="https://raw.githubusercontent.com/TamaniWolf/bash-installer/main"
 
@@ -46,18 +47,42 @@ while [ $choice -eq 4 ]; do
     read choice
 
     if [[ $choice -eq 1 ]] ; then
+        echo "Do you want to name it?"
+        read -p "[y/n]" yn
+        case $yn in
+            [Yy]* ) echo "Name:";;
+            [Nn]* ) sleep 2; break;;
+            * ) echo "Couldn't get that please type [y] for Yes or [n] for No.";;
+        esac
+        if [[ $yn -eq y ]]; then
+            read name
+        elif [[ $yn -eq Y ]]; then
+            read name
+        fi
         echo ""
         echo "Running ClanBot without auto restart in Screen. Please wait. . ."
         cd "$root/ClanBot"
         sudo pnpm update
-        while :; do screen -dmS clanbot clanbot.js; sleep 5s; done
+        while :; do screen -dmS "$name" clanbot.js; sleep 5s; done
         echo "Done"
     elif [[ $choice -eq 2 ]] ; then
+        echo "Do you want to name it?"
+        read -p "[y/n]" yn
+        case $yn in
+            [Yy]* ) echo "Name:";;
+            [Nn]* ) sleep 2; break;;
+            * ) echo "Couldn't get that please type [y] for Yes or [n] for No.";;
+        esac
+        if [[ $yn -eq y ]]; then
+            read name
+        elif [[ $yn -eq Y ]]; then
+            read name
+        fi
         echo ""
         echo "Running ClanBot with auto restart in Screen. Please wait. . ."
         cd "$root/ClanBot"
         sudo pnpm update
-        while :; do screen -dmS clanbot clanbot.js; sleep 5s; done
+        while :; do screen -dmS "$name" clanbot.js; sleep 5s; done
         echo "Done"
     elif [[ "$choice" -eq 3 ]] ; then
         echo ""
