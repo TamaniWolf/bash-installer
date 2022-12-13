@@ -48,14 +48,19 @@ while [ $choice -eq 4 ]; do
 
     if [[ $choice -eq 1 ]] ; then
         echo "Do you want to name it?"
-        while true; do
+        # while true; do
             read -p "[y/n]" yn
             case $yn in
-                [Yy]* ) read -p "name:" name;;
+                [Yy]* ) echo "Name:";;
                 [Nn]* ) sleep 2; break;;
                 * ) echo "Couldn't get that please type [y] for Yes or [n] for No.";;
             esac
-        done
+            if [[ $yn -eq y ]]; then
+                read name
+            elif [[ $yn -eq Y ]]; then
+                read name
+            fi
+        # done
         echo ""
         echo "Running ClanBot without auto restart in PM2. Please wait. . ."
         cd "$root/ClanBot"
