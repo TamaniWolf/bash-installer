@@ -129,11 +129,11 @@ if [ "$OS" = "Ubuntu" ]; then
     nvm install 16.17.1
     nvm use node
 
-    echo "Installing Pnpm..."
-    sudo npm install -g pnpm
+    echo "Installing Pnpm, PM2..."
+    sudo npm install -g pnpm pm2
 
-    echo "Installing Git, PM2, Screen..."
-    sudo apt-get install git pm2 screen -y
+    echo "Installing Git, Screen..."
+    sudo apt-get install git screen -y
 elif [ "$OS" = "Debian" ]; then
     echo "Installing NodeJS"
     sudo apt-get update;
@@ -143,11 +143,11 @@ elif [ "$OS" = "Debian" ]; then
     nvm install 16.17.1
     nvm use node
 
-    echo "Installing Pnpm..."
-    sudo npm install -g pnpm
+    echo "Installing Pnpm, PM2..."
+    sudo npm install -g pnpm pm2
     
-    echo "Installing Git, PM2, Screen..."
-    sudo apt-get install git pm2 screen -y
+    echo "Installing Git, Screen..."
+    sudo apt-get install git screen -y
 elif [ "$OS" = "Fedora" ]; then
     sudo dnf install curl
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
@@ -156,11 +156,11 @@ elif [ "$OS" = "Fedora" ]; then
     nvm install 16.17.1
     nvm use node
 
-    echo "Installing Pnpm..."
-    sudo npm install -g pnpm
+    echo "Installing Pnpm, PM2..."
+    sudo npm install -g pnpm pm2
 
-    echo "Installing Git, PM2, Screen..."
-    sudo dnf install git pm2 screen -y
+    echo "Installing Git, Screen..."
+    sudo dnf install git screen -y
 elif [ "$OS" = "openSUSE Leap" ] || [ "$OS" = "openSUSE Tumbleweed" ]; then
     echo -e "Installing NodeJS..."
     sudo zypper install curl
@@ -170,11 +170,11 @@ elif [ "$OS" = "openSUSE Leap" ] || [ "$OS" = "openSUSE Tumbleweed" ]; then
     nvm install 16.17.1
     nvm use node
 
-    echo -e "\nInstalling Pnpm..."
-    sudo npm install -g pnpm
+    echo -e "\nInstalling Pnpm, PM2..."
+    sudo npm install -g pnpm pm2
 
-    echo "Installing Git, PM2, Screen..."
-    sudo zypper install git pm2 screen -y
+    echo "Installing Git, Screen..."
+    sudo zypper install git screen -y
 elif [ "$OS" = "CentOS" ]; then
     if [ "$VER" = "7" ]; then
         echo "Installing NodeJS"
@@ -185,11 +185,11 @@ elif [ "$OS" = "CentOS" ]; then
         nvm install 16.17.1
         nvm use node
 
-        echo "Installing Pnpm..."
-        sudo npm install -g pnpm
+        echo "Installing Pnpm, PM2..."
+        sudo npm install -g pnpm pm2
 
-        echo "Installing Git, PM2, Screen..."
-        sudo apt-get install git pm2 screen -y
+        echo "Installing Git, Screen..."
+        sudo apt-get install git screen -y
     elif [ "$VER" = "8" ]; then
         echo -e "*CentOS 8 has reached an End Of Life (EOL) on December 31st, 2021. For more information, see the official CentOS Linux EOL page. Because of this, ClanBot won't be supported on CentOS Linux 8."
         rm clan-prereq.sh
@@ -208,11 +208,11 @@ elif [ "$OS" = "LinuxMint" ]; then
     nvm install 16.17.1
     nvm use node
 
-    echo "Installing Pnpm..."
-    sudo npm install -g pnpm
+    echo "Installing Pnpm, PM2..."
+    sudo npm install -g pnpm pm2
 
-    echo "Installing Git, PM2, Screen..."
-    sudo apt-get install git pm2 screen -y
+    echo "Installing Git, Screen..."
+    sudo apt-get install git screen -y
 fi
 
 echo
