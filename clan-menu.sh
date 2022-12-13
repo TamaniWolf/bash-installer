@@ -6,9 +6,6 @@ echo ""
 root=$(pwd)
 choice=9
     
-# base_url="https://github.com/TamaniWolf/bash-installer/blob/main"
-
-script_menu="clan-menu.sh"
 script_prereq="clan-prereq.sh"
 script_install="clan-download.sh"
 script_run="clan-run.sh"
