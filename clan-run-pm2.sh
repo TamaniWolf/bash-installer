@@ -2,6 +2,7 @@
 echo "Running ClanBot"
 root=$(pwd)
 choice=4
+name="ClanBot"
 
 base_url="https://raw.githubusercontent.com/TamaniWolf/bash-installer/main"
 
@@ -46,18 +47,25 @@ while [ $choice -eq 4 ]; do
     read choice
 
     if [[ $choice -eq 1 ]] ; then
+        echo "Do you want to name it?"
+        read -p "[y/n]" yn
+        case $yn in
+            [Yy]* ) clear; read "Name: " name; sleep 2; break;;
+            [Nn]* ) clear; sleep 2; break;;
+            * ) echo "Couldn't get that please type [y] for Yes or [n] for No.";;
+        esac
         echo ""
         echo "Running ClanBot without auto restart in PM2. Please wait. . ."
         cd "$root/ClanBot"
         sudo pnpm update
-        while :; do pm2 start clanbot.js --name "ClanBot" --max-memory-restart 250M; sleep 5s; done
+        while :; do pm2 start clanbot.js --name "$name" --max-memory-restart 250M; sleep 5s; done
         echo "Done"
     elif [[ $choice -eq 2 ]] ; then
         echo ""
         echo "Running ClanBot with auto restart in PM2. Please wait. . ."
         cd "$root/ClanBot"
         sudo pnpm update
-        while :; do pm2 start clanbot.js --name "ClanBot" --max-memory-restart 250M && pm2 save; sleep 5s; done
+        while :; do pm2 start clanbot.js --name "$name" --max-memory-restart 250M && pm2 save; sleep 5s; done
         echo "Done"
     elif [[ "$choice" -eq 3 ]] ; then
         echo ""
