@@ -55,7 +55,7 @@ while [ $choice -eq 9 ]; do
         echo ""
         sleep 2s
         bash "$root/clanStartScript.sh"
-    elif [[ $choice -eq 6 ]] ; then
+    elif [[ $choice -eq 5 ]] ; then
         echo ""
         echo "Exiting..."
         cd "$root"
